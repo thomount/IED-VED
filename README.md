@@ -46,26 +46,26 @@
 
 ### 基础（30）over
 
-    按8*8分块
-    DCT - 量化 - IDCT
-    比较PSNR（单个+平均）
+    按8*8分块                   over
+    DCT - 量化 - IDCT           over
+    比较PSNR（单个+平均）       record
 
 ### 延伸：量化矩阵*a（70）
 
-    a与PSNR变化曲线（10） over
-    解释（20）            over
-    分析量化矩阵影响因素，求更好的量化矩阵（20）   
-    对比Cannon&Nikon量化矩阵（20）                  over
+    a与PSNR变化曲线（10） record
+    解释（20）            text
+    分析量化矩阵影响因素，求更好的量化矩阵（20）      text
+    对比Cannon&Nikon量化矩阵（20）                  record
 
 ## ex3:视频处理
 
 ### 基础（50）
 
-    16*16分块
-    像素域块匹配
-    压缩域块匹配
-    按帧标定MVs
-    按帧标定MSE
+    16*16分块          over
+    像素 块匹配        over   
+    压缩 块匹配        over
+    按帧标定MVs        record
+    按帧标定MSE        record
 
 ### 延伸 （50）
 
