@@ -29,6 +29,20 @@ def cut(a, *args):
             for j in range(a.shape[1] >> 3):
                 a[i<<3:(i+1)<<3, j<<3:(j+1)<<3] = (a[(i<<3):(((i+1)<<3)), (j<<3):(((j+1)<<3))] / QN*(1/d)).astype(numpy.int)*QN*d
         return a
+    if type[0] == 'C':
+        b = numpy.zeros(a.shape)
+        d = int(type[1] ** 0.5)
+        sp = [int(a.shape[0]/d), int(a.shape[1]/d)]
+        b[:sp[0], :sp[1]] = a[:sp[0], :sp[1]]
+        return b
+
+    if type[0] == 'CP':
+        for i in range(a.shape[0] >> 3):
+            for j in range(a.shape[1] >> 3):
+                a[i<<3:(i+1)<<3, j<<3:(j+1)<<3] = cut(a[i<<3:(i+1)<<3, j<<3:(j+1)<<3], ['C']+type[1:])
+        return a
+    
+
 
 
 

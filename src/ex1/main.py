@@ -7,19 +7,31 @@ import time
 import matplotlib.pyplot as plt
 
 choice = int(sys.argv[1]) if len(sys.argv) > 0 else 0
-configs = [(0, 0), (1, 0), (2, 0) , (1, 4), (1, 16), (1, 64), (1,'Q'), (1, 'QC'), (1, 'QN')]
+configs = [(0, 0), (1, 0), (2, 0) , (0, 'C', 4), (0, 'C', 16), (0, 'C', 64), (1, 'CP', 4), (1, 'CP', 16), (1, 'CP', 64), (1,'Q'), (1, 'QC'), (1, 'QN')]
 
 # 0:  2d-dct 100%           0   0           (auto)
 # 1:  2d-dct 8*8 100%       1   0           (solve)
 # 2:  1d-dct r&c 50%        2   0           (solve) 
 
-# 3: 2d-dct ex 1/4          TODO
-# 4: 2d-dct ex 1/16         TODO
-# 5: 2d-dct ex 1/64         TODO
+# 3: 2d-dct ex 1/4          
+# 4: 2d-dct ex 1/16         
+# 5: 2d-dct ex 1/64         
 
-# 6: 2d-dct 100% Quantization
-# 7: 2d-dct 100% Quantization canon
-# 8: 2d-dct 100% Quantization nikon
+# 6: 2d-dct 8*8 1/4
+# 7: 2d-dct 8*8 1/16
+# 8: 2d-dct 8*8 1/64
+
+# 9: 2d-dct 100% Quantization
+# 10: 2d-dct 100% Quantization canon
+# 11: 2d-dct 100% Quantization nikon
+
+# 12: 2d-dct ex 1/4     max         TODO
+# 13: 2d-dct ex 1/16    max         TODO
+# 14: 2d-dct ex 1/64    max         TODO
+
+# 15: 2d-dct 8*8 1/4    max         TODO
+# 16: 2d-dct 8*8 1/16   max         TODO
+# 17: 2d-dct 8*8 1/64   max         TODO
 
 config = list(configs[choice])+sys.argv[2:]
 
