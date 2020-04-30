@@ -7,11 +7,11 @@ import time
 import matplotlib.pyplot as plt
 
 choice = int(sys.argv[1]) if len(sys.argv) > 0 else 0
-configs = [(0, 0), (1, 0), (2, 0) , (0, 'C', 4), (0, 'C', 16), (0, 'C', 64), (1, 'CP', 4), (1, 'CP', 16), (1, 'CP', 64), (1,'Q'), (1, 'QC'), (1, 'QN')]
+configs = [(0, 0), (1, 0), (2, 0) , (0, 'C', 4), (0, 'C', 16), (0, 'C', 64), (1, 'CP', 4), (1, 'CP', 16), (1, 'CP', 64), (1,'Q'), (1, 'QC'), (1, 'QN'), (1, 'QT')]
 
 # 0:  2d-dct 100%           0   0           (auto)
 # 1:  2d-dct 8*8 100%       1   0           (solve)
-# 2:  1d-dct r&c 50%        2   0           (solve) 
+# 2:  1d-dct r&c 100%       2   0           (solve) 
 
 # 3: 2d-dct ex 1/4          
 # 4: 2d-dct ex 1/16         
@@ -24,14 +24,7 @@ configs = [(0, 0), (1, 0), (2, 0) , (0, 'C', 4), (0, 'C', 16), (0, 'C', 64), (1,
 # 9: 2d-dct 100% Quantization
 # 10: 2d-dct 100% Quantization canon
 # 11: 2d-dct 100% Quantization nikon
-
-# 12: 2d-dct ex 1/4     max         TODO
-# 13: 2d-dct ex 1/16    max         TODO
-# 14: 2d-dct ex 1/64    max         TODO
-
-# 15: 2d-dct 8*8 1/4    max         TODO
-# 16: 2d-dct 8*8 1/16   max         TODO
-# 17: 2d-dct 8*8 1/64   max         TODO
+# 12:2d-dct 100% Quantization test
 
 config = list(configs[choice])+sys.argv[2:]
 
@@ -42,7 +35,7 @@ def show(d1, n1, d2, n2):
 
 d = cv2.imread('../../data/lena.bmp', 0)        #直接读入灰度图
 
-df_before = d.astype(numpy.float32)
+df_before = d.astype(numpy.float)
 
 startTime = time.time_ns()
 df_dct = func.dct(df_before, config[0]) 

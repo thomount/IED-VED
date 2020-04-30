@@ -14,8 +14,8 @@ def mark(b, pt, size):
     #cv2.waitKey(0)
     return a
 
-def cut(a, pt, size):
-    return a[pt[0]:pt[0]+size, pt[1]:pt[1]+size]
+def cut(a, pt, size, step):
+    return a[pt[0]:pt[0]+size:step, pt[1]:pt[1]+size:step]
 
 def mse(a):
     return numpy.sum(a**2)
