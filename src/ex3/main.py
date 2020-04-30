@@ -25,7 +25,7 @@ if Flag == 1:
     dmod = dmod[:size//k, :size//k]
 else:
     dmod = func.cut(func.toGrey(img), rpt, size, k).astype(numpy.int32)
-    mod = dmod
+    mod = func.cut(func.toGrey(img), rpt, size, 1).astype(numpy.int32)
 mvs = []
 mses = []
 f = open('../../output/ex3/res'+str(Flag)+'_'+str(k)+'.txt', 'w')
@@ -42,7 +42,7 @@ for T in range(100):
                 dtar = cv2.dct(tar.astype(numpy.float32))[:size//k, :size//k]
             else:
                 dtar = func.cut(gimg, [i, j], size, k)
-                tar = dtar
+                tar = func.cut(gimg, [i, j], size, 1)
             tmp = func.mse(dmod-dtar)
             if tmp < mse:
                 mse = tmp

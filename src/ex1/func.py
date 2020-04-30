@@ -55,13 +55,12 @@ def cut(a, *args):
 
 
 
-
 def dct(a, *args):
     type = args[0] if len(args) > 0 else 0
     if type == 0:
         return cv2.dct(a)
     if type == 1:
-        b = numpy.zeros(a.shape, dtype = float)
+        b = numpy.zeros(a.shape, dtype = numpy.float32)
         for i in range(a.shape[0] >> 3):
             for j in range(a.shape[1] >> 3):
                 b[i<<3:(i+1)<<3, j<<3:(j+1)<<3] = cv2.dct(a[(i<<3):(((i+1)<<3)), (j<<3):(((j+1)<<3))])
@@ -69,8 +68,8 @@ def dct(a, *args):
         return b
     
     if type == 2:
-        b = numpy.zeros(a.shape, dtype = float)
-        c = numpy.zeros(a.shape, dtype = float)
+        b = numpy.zeros(a.shape, dtype = numpy.float32)
+        c = numpy.zeros(a.shape, dtype = numpy.float32)
         for i in range(a.shape[0]):
             b[i] = cv2.dct(a[i]).T[0]
 
@@ -84,15 +83,15 @@ def idct(a, *args):
     if type == 0:
         return cv2.idct(a)
     if type == 1:
-        b = numpy.zeros(a.shape, dtype = float)
+        b = numpy.zeros(a.shape, dtype = numpy.float32)
         for i in range(a.shape[0] >> 3):
             for j in range(a.shape[1] >> 3):
                 b[i<<3:(i+1)<<3, j<<3:(j+1)<<3] = cv2.idct(a[(i<<3):(((i+1)<<3)), (j<<3):(((j+1)<<3))])
 
         return b
     if type == 2:
-        b = numpy.zeros(a.shape, dtype = float)
-        c = numpy.zeros(a.shape, dtype = float)
+        b = numpy.zeros(a.shape, dtype = numpy.float32)
+        c = numpy.zeros(a.shape, dtype = numpy.float32)
         for i in range(a.shape[0]):
             b[i] = cv2.idct(a[i]).T[0]
         for i in range(a.shape[1]):

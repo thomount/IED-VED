@@ -24,7 +24,7 @@ configs = [(0, 0), (1, 0), (2, 0) , (0, 'C', 4), (0, 'C', 16), (0, 'C', 64), (1,
 # 9: 2d-dct 100% Quantization
 # 10: 2d-dct 100% Quantization canon
 # 11: 2d-dct 100% Quantization nikon
-# 12:2d-dct 100% Quantization test
+# 12: 2d-dct 100% Quantization test
 
 config = list(configs[choice])+sys.argv[2:]
 
@@ -35,7 +35,7 @@ def show(d1, n1, d2, n2):
 
 d = cv2.imread('../../data/lena.bmp', 0)        #直接读入灰度图
 
-df_before = d.astype(numpy.float)
+df_before = d.astype(numpy.float32)
 
 startTime = time.time_ns()
 df_dct = func.dct(df_before, config[0]) 
